@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission to Mars</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" style="background-color: lightblue; text-align:center; padding:2%;">
+                <h1 style="text-align:center"><strong>Mission to Mars</strong></h1>
+                <button type="button" class="btn btn-primary"><a href="/scrape" style="color:white">Scrape New Data</a></button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12" style="padding:2%">
+                <h4><strong>Latest Mars News</strong></h1>
+                {% if news_title %}
+                <h4>{{news_title}}<h4>
+                <p>{{news_p}}</p>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8" style="padding:2%;">
+                <h4><strong>Featured Mars Image</strong></h4>
+                <img src="static/feat.jpg" class="img-responsive">
+            </div>
+            <div class="col-md-4" style="padding:2%;">
+                <h4><strong>Mars Facts</strong></h4>
+                {% if table %}
+                {{table | safe}}
+                {% else %}
+                <h6>Image not found</h6>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12" style="padding:2%;">
+                <h4 style="text-align:center;"><strong>Mars Hemispheres</strong></h4>
+                <hr>
+                <table class="table">
+                    <tbody>
+                        <tr>
+                          <td>
+                              <img src="static/{{hemi_list[0]}}.jpg" class="img-responsive">
+                              <h4>{{hemi_list[0]}}</h4>
+                          </td>
+                          <td>
+                              <img src="static/{{hemi_list[1]}}.jpg" class="img-responsive">
+                              <h4>{{hemi_list[1]}}</h4>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                              <img src="static/{{hemi_list[2]}}.jpg" class="img-responsive">
+                              <h4>{{hemi_list[2]}}</h4>
+                          </td>
+                          <td>
+                              <img src="static/{{hemi_list[3]}}.jpg" class="img-responsive">
+                              <h4>{{hemi_list[3]}}</h4>
+                          </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+    <div>
+</body>
+</html>
